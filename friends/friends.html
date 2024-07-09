@@ -82,7 +82,7 @@
         </div>
         <div class="carousel-item">
             <img src="kitty/kitty.jpg">
-            <button class="button" onclick="goToPage('kitty.html')">查看 EMO Kitty</button>
+            <button class="button" onclick="goToPage('kitty/kitty.html')">查看 EMO Kitty</button>
         </div>
         <div class="carousel-item">
             <img src=".jpg">
@@ -101,8 +101,6 @@
             const carouselItems = document.querySelectorAll('.carousel-item');
             const buttons = document.querySelectorAll('.button');
 
-            // 隱藏所有按鈕
-            buttons.forEach(button => button.style.display = 'none');
 
    
             carouselContainer.addEventListener('scroll', function() {
