@@ -10,3 +10,9 @@ body{
     text-align: center;
     color:rgb(26, 156, 243)
 }
+
+@media (max-width: 768px) {
+    .carousel-item {
+        flex: 0 0 50%; 
+    }
+}
