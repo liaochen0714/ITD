@@ -83,75 +83,43 @@
         <img src="yang.png">
         <button class="button" onclick="action3()">Legend yang - 查看</button>
     </div>
+    <div class="carousel-item">
+        <img src="kitty.jpg">
+        <button class="button" onclick="action4()">EMO kitty - 查看</button>
+    </div>
     <!-- add more -->
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const carouselContainer = document.querySelector('.carousel-container');
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        const buttons = document.querySelectorAll('.button');
-        const containerWidth = carouselContainer.offsetWidth;
-
-        // 初始化隐藏所有按钮
-        buttons.forEach(button => button.style.display = 'none');
-
-        // 点击按钮的动作示例
-        function action1() {
-            alert('Button 1 clicked');
+    <script>
+        function goToPage(pageUrl) {
+            window.location.href = pageUrl;
         }
 
-        function action2() {
-            alert('Button 2 clicked');
-        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const carouselContainer = document.querySelector('.carousel-container');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const buttons = document.querySelectorAll('.button');
+            const containerWidth = carouselContainer.offsetWidth;
 
-        function action3() {
-            alert('Button 3 clicked');
-        }
+            // 初始化隐藏所有按钮
+            buttons.forEach(button => button.style.display = 'none');
 
-        // 点击图片时，允许拖动滚动
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        carouselContainer.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - carouselContainer.offsetLeft;
-            scrollLeft = carouselContainer.scrollLeft;
-        });
-
-        carouselContainer.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        carouselContainer.addEventListener('mouseup', () => {
-            isDown = false;
-        });
-
-        carouselContainer.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - carouselContainer.offsetLeft;
-            const walk = (x - startX) * 3; // 调整滚动速度
-            carouselContainer.scrollLeft = scrollLeft - walk;
-        });
-
-        // 监听滚动事件，控制按钮显示状态
-        carouselContainer.addEventListener('scroll', function() {
-            carouselItems.forEach(item => {
-                const rect = item.getBoundingClientRect();
-                if (rect.left >= 0 && rect.right <= window.innerWidth) {
-                    item.classList.add('active');
-                    item.classList.remove('inactive');
-                    item.querySelector('.button').style.display = 'inline-block'; // 显示按钮
-                } else {
-                    item.classList.remove('active');
-                    item.classList.add('inactive');
-                    item.querySelector('.button').style.display = 'none'; // 隐藏按钮
-                }
+            // 监听滚动事件，控制按钮显示状态
+            carouselContainer.addEventListener('scroll', function() {
+                carouselItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    if (rect.left >= 0 && rect.right <= window.innerWidth) {
+                        item.classList.add('active');
+                        item.classList.remove('inactive');
+                        item.querySelector('.button').style.display = 'inline-block'; // 显示按钮
+                    } else {
+                        item.classList.remove('active');
+                        item.classList.add('inactive');
+                        item.querySelector('.button').style.display = 'none'; // 隐藏按钮
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
         <script src = "script-friends.js"></script>
 </body>
