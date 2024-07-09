@@ -91,12 +91,7 @@
         const carouselContainer = document.querySelector('.carousel-container');
         const carouselItems = document.querySelectorAll('.carousel-item');
         const buttons = document.querySelectorAll('.button');
-        const totalItems = carouselItems.length;
         const containerWidth = carouselContainer.offsetWidth;
-
-        // 设置初始状态为中间图片
-        const centerIndex = Math.floor(totalItems / 2);
-        scrollToCenter(centerIndex);
 
         // 初始化隐藏所有按钮
         buttons.forEach(button => button.style.display = 'none');
@@ -114,12 +109,34 @@
             alert('Button 3 clicked');
         }
 
-        // 滚动到中心位置
-        function scrollToCenter(index) {
-            carouselContainer.scrollLeft = carouselItems[index].offsetLeft - (containerWidth - carouselItems[index].offsetWidth) / 2;
-        }
+        // 点击图片时，允许拖动滚动
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-        // 监听滚动事件，控制图片和按钮显示状态
+        carouselContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - carouselContainer.offsetLeft;
+            scrollLeft = carouselContainer.scrollLeft;
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        carouselContainer.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        carouselContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carouselContainer.offsetLeft;
+            const walk = (x - startX) * 3; // 调整滚动速度
+            carouselContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // 监听滚动事件，控制按钮显示状态
         carouselContainer.addEventListener('scroll', function() {
             carouselItems.forEach(item => {
                 const rect = item.getBoundingClientRect();
@@ -133,20 +150,7 @@
                     item.querySelector('.button').style.display = 'none'; // 隐藏按钮
                 }
             });
-
-            // 检查是否需要循环滚动到中间位置
-            const scrollLeft = carouselContainer.scrollLeft;
-            if (scrollLeft === 0) {
-                carouselContainer.scrollLeft = carouselContainer.scrollWidth; // 滚动到最右边
-            } else if (scrollLeft + containerWidth >= carouselContainer.scrollWidth) {
-                carouselContainer.scrollLeft = 0; // 滚动到最左边
-            }
         });
-
-        // 自动滚动到中心位置（用于处理初始加载时位置的调整）
-        setTimeout(function() {
-            scrollToCenter(centerIndex);
-        }, 100);
     });
 </script>
         <script src = "script-friends.js"></script>
