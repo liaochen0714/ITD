@@ -1,0 +1,104 @@
+body{
+    background-image: url( data:image/jpeg;base64,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);
+}
+
+.title {
+    border:2px solid rgb(146, 133, 0);
+    border-width:7px;
+    width: 100%;
+    height:150px;
+    text-align: center;
+    color:rgb(255, 192, 1)
+}
+
+.yimi{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.ITD{
+    color: rgb(136, 129, 2);
+    font-family: LiHei Pro;
+    font-family: Papyrus;
+}
+
+.bigITD{
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(240, 255, 80);
+}
+
+
+.button-IG {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #b43efe;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button-IG:hover {background-color: #8e17f5}
+
+.button-IG:active {
+    background-color: #ad0bf3;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+
+
+.button-FB {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #79deff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button-FB:hover {background-color: #4fbbd9}
+
+.button-FB:active {
+    background-color: #0dd5ce;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.button-ITCH {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ff911c;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button-ITCH:hover {background-color: #ba9921}
+
+.button-ITCH:active {
+    background-color: #f8ab13;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
