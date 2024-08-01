@@ -99,3 +99,30 @@ body{
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+/* 設置容器居中 */
+.bigITD {
+    text-align: center; /* 使內部元素水平居中 */
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 垂直方向居中 */
+    justify-content: center; /* 水平方向居中 */
+}
+
+#google-img {
+    width: 100%;
+    max-width: 400px; /* 設定最大寬度 */
+    height: auto;
+    cursor: pointer;
+}
+
+.gay {
+    width: 100%;
+    max-width: 400px; /* 確保 GAY.jpg 大小一致 */
+    height: auto;
+    display: none; /* 初始隱藏 */
+}
+
