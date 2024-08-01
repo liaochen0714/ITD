@@ -4,61 +4,8 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>最頂好友</title>
     <link rel="stylesheet" href="style-friends.css">
-    <style>
-        .carousel-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-        }
-
-        .carousel-item {
-            flex: 0 0 35%;
-            scroll-snap-align: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.3s ease-out;
-        }
-
-        .carousel-item.inactive img {
-            transform: scale(0.8); 
-            opacity: 0.6; 
-        }
-
-        .button {
-            display: none; 
-            padding: 15px 30px;
-            font-size: 18px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            outline: none;
-            color: #fff;
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 9px #999;
-            margin-top: 10px;
-        }
-
-        .button:hover {
-            background-color: #3e8e41;
-        }
-
-        .button:active {
-            background-color: #3e8e41;
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-        }
-    </style>
 </head>
 <body>
     <div class="title">
@@ -84,41 +31,12 @@
             <img src="kitty/kitty.jpg">
             <button class="button" onclick="goToPage('kitty/kitty.html')">查看 EMO Kitty</button>
         </div>
-        <div class="carousel-item">
-            <img src="google/GAY.jpg">
-            <button class="button" onclick="goToPage('google/google.html')">查看 谷哥</button>
+        <div class="carousel-item" id="google">
+            <img src="google/eyes.png" id="google-img" onclick="showGoogle()">
+            <button class="button" id="google-button" onclick="goToPage('google/google.html')" style="display: none;">查看 谷哥</button>
         </div>
-        <!-- 可加更多 -->
+    </div>
 
-
-    <script>
-        function goToPage(pageUrl) {
-    window.open(pageUrl, '_blank');
-    }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const carouselContainer = document.querySelector('.carousel-container');
-            const carouselItems = document.querySelectorAll('.carousel-item');
-            const buttons = document.querySelectorAll('.button');
-
-
-   
-            carouselContainer.addEventListener('scroll', function() {
-                carouselItems.forEach(item => {
-                    const rect = item.getBoundingClientRect();
-                    if (rect.left >= 0 && rect.right <= window.innerWidth) {
-                        item.classList.add('active');
-                        item.classList.remove('inactive');
-                        item.querySelector('.button').style.display = 'inline-block'; // 顯示按鈕
-                    } else {
-                        item.classList.remove('active');
-                        item.classList.add('inactive');
-                        item.querySelector('.button').style.display = 'none'; // 隱藏按鈕
-                    }
-                });
-
-            });
-        });
-    </script>
+    <script src="script-friend.js"></script>
 </body>
 </html>
